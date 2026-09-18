@@ -1,0 +1,23 @@
+{
+  "build_args": {
+    "BASE_IMAGE": "nvcr.io/nvidia/pytorch:25.11-py3@sha256:417cbf33f87b5378849df37983552cd1f8bc8b62fe1ceabe004de816a55dff21",
+    "PI_VERSION": "0.84.4"
+  },
+  "create_args": [
+    "--device", "nvidia.com/gpu=all",
+    "--security-opt", "label=disable",
+    "--env", "NVIDIA_VISIBLE_DEVICES=void",
+    "--shm-size", "16g",
+    "--ulimit", "memlock=-1:-1",
+    "--cap-add", "SYS_PTRACE"
+  ],
+  "settings": {
+    "theme": "dark",
+    "packages": [
+      "npm:pi-web-access@0.29.0",
+      "npm:pi-subagents@0.68.0",
+      "npm:pi-goal-x@0.31.4",
+      "npm:@dietrichgebert/ponytail@4.10.0"
+    ]
+  }
+}

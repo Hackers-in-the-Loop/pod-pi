@@ -1,0 +1,11 @@
+{
+  "build_args": {
+    "BASE_IMAGE": "docker.io/library/node:22-bookworm",
+    "PI_VERSION": "0.84.4"
+  },
+  "create_args": ["--shm-size", "1g"],
+  "settings": {
+    "theme": "dark",
+    "packages": []
+  }
+}

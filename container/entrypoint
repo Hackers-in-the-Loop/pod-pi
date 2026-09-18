@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+sync-packages.py
+tmux new-session -d -s pi -n agent -c /workspace 'pi-session; exec bash'
+tmux new-window -t pi -n shell -c /workspace
+tmux select-window -t pi:0
+while tmux has-session -t pi 2>/dev/null; do sleep 5; done
+echo 'The Pi terminal ended; exiting so the container can restart.' >&2
+exit 1
